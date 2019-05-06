@@ -187,6 +187,17 @@ static MIKMIDIMappingManager *sharedManager = nil;
 
 - (NSURL *)userMappingsFolder
 {
+    if([[NSApplication sharedApplication] respondsToSelector:@selector(userMappingsFolderForMappingManager:)]) {
+        id<MIKMIDIMappingManagerApp> appDelegate = [NSApplication sharedApplication];
+        return [appDelegate userMappingsFolderForMappingManager:self];
+    }
+    else {
+        return [self defaultUserMappingsFolder];
+    }
+}
+
+- (NSURL *)defaultUserMappingsFolder
+{
 	NSFileManager *fm = [NSFileManager defaultManager];
 	
 	NSArray *appSupportFolders = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);

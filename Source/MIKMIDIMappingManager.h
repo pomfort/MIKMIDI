@@ -200,4 +200,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@protocol MIKMIDIMappingManagerApp
+
+/**
+ *  Used to determine the path where the user's mappings will be stored. You should implement this method as a category on
+ *  NSApplication.
+ *
+ *  If this method is not implemented, or returns nil, the "$ApplicationSupport/$BundleIdentifier/MIDI Mappings" folder will be used,
+ *  with $ApplicationSupport being replaced by the path to the Application Support folder and $BundleIdentifier being replaced by
+ *  the bundle identifier of the app
+ *
+ *  @return URL for the path where the user's mappings are stored.
+ */
+- (NSURL*)userMappingsFolderForMappingManager:(MIKMIDIMappingManager*)manager;
+
+@end
+
 NS_ASSUME_NONNULL_END
