@@ -183,6 +183,11 @@ static MIKMIDIMappingManager *sharedManager = nil;
 	}
 }
 
+- (void)reloadMappingsFromDisk
+{
+    [self loadAvailableUserMappings];
+}
+
 #pragma mark - Private
 
 - (NSURL *)userMappingsFolder

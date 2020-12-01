@@ -104,6 +104,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)saveMappingsToDisk;
 
+/**
+*  Reloads mappings from disk
+*/
+- (void)reloadMappingsFromDisk;
+
 // Properties
 
 /**
